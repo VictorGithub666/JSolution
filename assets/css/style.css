@@ -204,7 +204,7 @@ button{ font-family:inherit; }
   transition:opacity .5s ease, visibility .5s ease;
 }
 #preloader img{
-  width:120px;
+  width:400px;
   height:auto;
   animation:pulse-cap 1.4s ease-in-out infinite;
   display:block;
