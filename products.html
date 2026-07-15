@@ -77,7 +77,25 @@
               <li><i class="bi bi-check-circle-fill"></i> Cuts fertilizer costs by up to 75%</li>
               <li><i class="bi bi-check-circle-fill"></i> Perfect for grains, vegetables, tubers, fruits, flowers, herbs, berries &amp; spices</li>
             </ul>
-            <a href="https://black-gold-compost-884f595b.base44.app/" target="_blank" rel="noopener" class="btn btn-primary">Order Black Gold <i class="bi bi-arrow-right"></i></a>
+            <div class="order-box order-box-dark">
+              <h4>Order Black Gold</h4>
+              <p class="form-note mt-0">Enter your name and phone number — our team will call to confirm quantity and delivery.</p>
+              <form class="order-form" action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="">
+                <input type="hidden" name="subject" value="Order request: Black Gold Power Compost">
+                <input type="hidden" name="product" value="Black Gold Power Compost">
+                <div class="form-row">
+                  <label for="o-name-goldband">Full Name</label>
+                  <input id="o-name-goldband" type="text" name="name" required>
+                </div>
+                <div class="form-row">
+                  <label for="o-phone-goldband">Phone Number</label>
+                  <input id="o-phone-goldband" type="tel" name="phone" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Order Now — Black Gold <i class="bi bi-arrow-right"></i></button>
+                <p class="form-status"></p>
+              </form>
+            </div>
           </div>
           <div class="gold-media">
             <img src="assets/img/power-compost-packaging.png" alt="Black Gold Power Compost packaging">

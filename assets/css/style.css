@@ -36,7 +36,7 @@
 *,*::before,*::after{ box-sizing:border-box; }
 html{ scroll-behavior:smooth; }
 body{
-  margin:0;
+  margin: 0;
   font-family:var(--font-body);
   color:var(--ink);
   background:var(--paper);
@@ -289,8 +289,8 @@ button{ font-family:inherit; }
 /* ---------- Who we are / About split ---------- */
 .split{ display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
 @media (max-width:900px){ .split{ grid-template-columns:1fr; gap:36px; } }
-.split-media{ position:relative; border-radius:22px; overflow:hidden; }
-.split-media img{ width:100%; height:100%; object-fit:cover; }
+.split-media{ position:relative; }
+.split-media img{ width:100%; height:100%; object-fit:cover; border-radius:22px; }
 .badge-float{
   position:absolute; right:-18px; bottom:-18px;
   background:#fff; border-radius:16px; padding:16px 20px;
@@ -393,7 +393,7 @@ button{ font-family:inherit; }
 /* Order form */
 .order-box{
   border:1px solid var(--line); border-radius:20px; padding:28px; background:var(--cream);
-  margin-top:2em;
+  margin-top:2em; margin-left: -25px;
 }
 .order-box h4{ margin-bottom:.2em; }
 .form-row{ display:flex; flex-direction:column; gap:6px; margin-bottom:16px; }
@@ -409,6 +409,14 @@ button{ font-family:inherit; }
 .form-status{ font-size:.88rem; margin-top:.8em; display:none; }
 .form-status.ok{ color:var(--dominant); display:block; }
 .form-status.err{ color:#b3391f; display:block; }
+
+/* Order box on dark/gold backgrounds (e.g. Black Gold feature) */
+.order-box-dark{ background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.25); backdrop-filter:blur(6px); }
+.order-box-dark h4{ color:#fff8ec; }
+.order-box-dark .form-note{ color:#e3cfa5; }
+.order-box-dark .form-row label{ color:#f1e2c8; }
+.order-box-dark .form-row input{ background:rgba(255,255,255,.96); }
+.order-box-dark .form-status.err{ color:#ffd7c9; }
 
 /* Related products */
 .related-row{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
