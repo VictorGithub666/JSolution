@@ -456,6 +456,72 @@ button{ font-family:inherit; }
   display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; color:#8fa89b;
 }
 
+/* ---------- Black Gold badge (hero) ---------- */
+.hero-gold-badge{
+  display:inline-flex; align-items:center; gap:.6em;
+  background:linear-gradient(90deg,#8a5a1e,#c98f2c 50%,#8a5a1e);
+  color:#fff8e6; font-family:var(--font-mono); font-size:.76rem; letter-spacing:.05em;
+  padding:.55em 1.1em; border-radius:999px; margin-bottom:1.2em;
+  border:1px solid rgba(255,224,150,.4);
+}
+.hero-gold-badge .dot{ width:7px; height:7px; border-radius:50%; background:#ffe08a; box-shadow:0 0 8px #ffe08a; }
+
+/* ---------- Poster popup trigger + lightbox ---------- */
+.poster-trigger{
+  position:absolute; left:-18px; bottom:-18px; z-index:3;
+  width:110px; border-radius:14px; overflow:hidden; cursor:pointer;
+  border:3px solid #fff; box-shadow:0 20px 40px -16px rgba(10,32,22,.35);
+  transition:transform .25s ease;
+}
+.poster-trigger:hover{ transform:translateY(-4px) scale(1.03); }
+.poster-trigger img{ width:100%; display:block; }
+.poster-trigger .poster-trigger-label{
+  position:absolute; inset:auto 0 0 0; background:rgba(10,32,22,.75); color:#fff;
+  font-size:.62rem; text-align:center; padding:.35em 0; font-weight:600;
+}
+@media (max-width:500px){ .poster-trigger{ left:8px; bottom:8px; width:84px; } }
+
+.lightbox{
+  position:fixed; inset:0; z-index:200; display:none; align-items:center; justify-content:center;
+  background:rgba(10,32,22,.88); padding:30px;
+}
+.lightbox.open{ display:flex; }
+.lightbox-inner{ position:relative; max-width:720px; width:100%; }
+.lightbox-inner img{ width:100%; border-radius:14px; box-shadow:0 30px 70px -20px rgba(0,0,0,.6); }
+.lightbox-close{
+  position:absolute; top:-42px; right:0; width:36px; height:36px; border-radius:50%;
+  background:#fff; color:var(--forest-950); display:flex; align-items:center; justify-content:center;
+  cursor:pointer; border:none; font-size:1.1rem;
+}
+
+/* ---------- Black Gold feature (home star product + products page) ---------- */
+.gold-feature{
+  background:linear-gradient(155deg,#2a1c0d,#5c3d15 55%,#8a5a1e);
+  border-radius:28px; padding:56px; color:#fff8ec; position:relative; overflow:hidden;
+}
+.gold-feature::after{
+  content:""; position:absolute; right:-70px; top:-70px; width:240px; height:240px; border-radius:50%;
+  background:radial-gradient(circle,rgba(255,224,150,.28),transparent 70%);
+}
+.gold-feature .eyebrow{ color:#ffe08a; }
+.gold-feature .eyebrow::before{ background:#ffe08a; }
+.gold-feature h2, .gold-feature h3{ color:#fff8ec; }
+.gold-feature .lede{ color:#f1e2c8; }
+.gold-check-list{ display:grid; gap:.6em; margin:1.4em 0; }
+.gold-check-list li{ display:flex; align-items:flex-start; gap:.6em; font-size:.94rem; color:#f1e2c8; }
+.gold-check-list li i{ color:#ffe08a; margin-top:.2em; }
+.gold-feature .gold-media{ border-radius:20px; overflow:hidden; background:rgba(255,255,255,.06); }
+.gold-feature .gold-media img{ width:100%; object-fit:contain; }
+.gold-stat-strip{ display:flex; gap:26px; flex-wrap:wrap; margin-top:1.6em; }
+.gold-stat-strip div{ font-family:var(--font-mono); }
+.gold-stat-strip .num{ color:#ffe08a; font-size:1.3rem; display:block; }
+.gold-stat-strip .lbl{ font-size:.76rem; color:#e3cfa5; }
+
+/* Black Gold band on products.html */
+.gold-band{ margin-bottom:3.4em; }
+.gold-band .gold-feature{ display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; }
+@media (max-width:900px){ .gold-band .gold-feature{ grid-template-columns:1fr; gap:30px; padding:36px; } }
+
 /* ---------- Scroll top ---------- */
 #scroll-top{
   position:fixed; right:22px; bottom:22px; width:44px; height:44px; border-radius:50%;

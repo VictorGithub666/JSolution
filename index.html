@@ -61,11 +61,12 @@
         <source src="assets/img/HERO-1.mp4" type="video/mp4">
       </video>
       <div class="container hero-inner">
+        <div class="hero-gold-badge"><span class="dot"></span> NEW: Black Gold — Power Compost</div>
         <div class="eyebrow">World's 1st Encapsulated Bio-Technology</div>
         <h1 style="color: white;" class="h-xl">Organic capsules that rebuild Kenyan soil, one acre at a time.</h1>
-        <p class="lede">JSolution Ltd. is the exclusive Kenyan distributor of Siesto Green's encapsulated organic fertilizers and pesticides — helping farmers cut chemical dependency, protect soil, air and water, and grow safer food.</p>
+        <p class="lede">JSolution Ltd. is the exclusive Kenyan distributor of Siesto Green's encapsulated organic fertilizers and pesticides — helping farmers cut chemical dependency, protect soil, air and water, and grow safer food. Now turn cow dung into <strong>Black Gold</strong> in just 25 days with our Power Compost.</p>
         <div class="hero-cta">
-          <a href="products.html" class="btn btn-on-dark">Explore Products <i class="bi bi-arrow-right"></i></a>
+          <a href="https://black-gold-compost-884f595b.base44.app/" target="_blank" rel="noopener" class="btn btn-on-dark">Discover Black Gold <i class="bi bi-arrow-right"></i></a>
           <a href="contact.html" class="btn btn-outline-dark">Talk to Our Team</a>
         </div>
         <div class="hero-stats">
@@ -81,6 +82,10 @@
         <div class="split-media reveal">
           <img src="assets/img/who-we-are.jpg" alt="Farmer holding healthy soil and seedling">
           <div class="badge-float"><i class="bi bi-patch-check-fill" style="color:var(--dominant);font-size:1.4rem;"></i><span>Exclusive Kenyan distributor of Siesto Green</span></div>
+          <div class="poster-trigger" id="posterTrigger">
+            <img src="assets/img/popup-poster.png" alt="Black Gold Power Compost poster — click to view">
+            <span class="poster-trigger-label">View Poster</span>
+          </div>
         </div>
         <div class="reveal">
           <div class="eyebrow">Who We Are</div>
@@ -152,16 +157,29 @@
       </div>
     </section>
 
-    <section class="section section-tight" style="background:var(--cream);">
-      <div class="container split">
-        <div class="reveal">
-          <div class="eyebrow">Star Product</div>
-          <h2 class="h-lg">The Poornima Cycle Kit</h2>
-          <p class="lede">A single bio-enzyme kit — NPK Grow, Zinc Grow, Mycorrhiza, Humigrow and Crop Force — dosed together for the complete development of soil and plant. Available in 1-Acre and 1-Hectare packs.</p>
-          <a href="products/poornima-cycle-kit.html" class="btn btn-primary">View the Poornima Kit <i class="bi bi-arrow-right"></i></a>
-        </div>
-        <div class="split-media reveal">
-          <img src="assets/img/POORNIMA CYCLE KIT.png" alt="Poornima Cycle Kit">
+    <section class="section section-tight">
+      <div class="container">
+        <div class="gold-feature reveal" style="display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;">
+          <div>
+            <div class="eyebrow">Our Flagship Innovation</div>
+            <h2 class="h-lg">🌾 Black Gold — Power Compost</h2>
+            <p class="lede">Turn cow dung into nutrient-rich Black Gold organic fertilizer in just 25 days. A simple, affordable super compost that transforms your soil into a fertile powerhouse.</p>
+            <ul class="gold-check-list">
+              <li><i class="bi bi-check-circle-fill"></i> Rich in Nitrogen, Phosphorus, Potassium, Zinc &amp; Sulphur</li>
+              <li><i class="bi bi-check-circle-fill"></i> Packed with beneficial microbes for better soil &amp; nutrient uptake</li>
+              <li><i class="bi bi-check-circle-fill"></i> Boosts yields and soil health naturally</li>
+              <li><i class="bi bi-check-circle-fill"></i> Cuts fertilizer costs by up to 75%</li>
+              <li><i class="bi bi-check-circle-fill"></i> Perfect for grains, vegetables, tubers, fruits, flowers, herbs, berries &amp; spices</li>
+            </ul>
+            <a href="https://black-gold-compost-884f595b.base44.app/" target="_blank" rel="noopener" class="btn btn-primary">Order Black Gold <i class="bi bi-arrow-right"></i></a>
+            <div class="gold-stat-strip">
+              <div><span class="num">25 Days</span><span class="lbl">To nutrient-rich Black Gold</span></div>
+              <div><span class="num">75%</span><span class="lbl">Cut in fertilizer costs</span></div>
+            </div>
+          </div>
+          <div class="gold-media reveal">
+            <img src="assets/img/power-compost-packaging.png" alt="Black Gold Power Compost packaging">
+          </div>
         </div>
       </div>
     </section>
@@ -197,7 +215,7 @@
           <a target="_blank" href="https://www.instagram.com/jsolution.kenya?utm_source=qr&igsh=dHJ5azgzZWM3aGdz" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
           <a target="_blank" href="https://vm.tiktok.com/ZS9Mqo2NaAe4x-uIhap/" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
           <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-          <a href="#" aria-label="X"><i class="bi bi-twitter-x"></i></a>s
+          <a href="#" aria-label="X"><i class="bi bi-twitter-x"></i></a>
         </div>
       </div>
       <div>
@@ -228,6 +246,13 @@
     </div>
   </footer>
   <a href="#" id="scroll-top"><i class="bi bi-arrow-up"></i></a>
+
+  <div class="lightbox" id="posterLightbox">
+    <div class="lightbox-inner">
+      <button class="lightbox-close" id="posterLightboxClose" aria-label="Close poster"><i class="bi bi-x-lg"></i></button>
+      <img src="assets/img/Power-Compost-Poster.jpeg" alt="Black Gold Power Compost poster">
+    </div>
+  </div>
 
   <script src="assets/js/main.js"></script>
 </body>

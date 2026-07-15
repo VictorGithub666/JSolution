@@ -44,6 +44,17 @@ document.addEventListener('DOMContentLoaded', function () {
     reveals.forEach(function (el) { el.classList.add('in'); });
   }
 
+  /* Poster popup (Black Gold) */
+  var posterTrigger = document.getElementById('posterTrigger');
+  var posterLightbox = document.getElementById('posterLightbox');
+  var posterLightboxClose = document.getElementById('posterLightboxClose');
+  if (posterTrigger && posterLightbox) {
+    posterTrigger.addEventListener('click', function () { posterLightbox.classList.add('open'); });
+    posterLightboxClose && posterLightboxClose.addEventListener('click', function () { posterLightbox.classList.remove('open'); });
+    posterLightbox.addEventListener('click', function (e) { if (e.target === posterLightbox) posterLightbox.classList.remove('open'); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') posterLightbox.classList.remove('open'); });
+  }
+
   /* Product filter (products.html) */
   var filterBtns = document.querySelectorAll('.filter-btn');
   var productCards = document.querySelectorAll('[data-cat]');
@@ -58,7 +69,8 @@ document.addEventListener('DOMContentLoaded', function () {
   });
   if (filterBtns.length) {
     var hash = window.location.hash.replace('#', '');
-    if (hash) applyFilter(hash);
+    var validFilters = ['all', 'fert', 'pgpr', 'pest', 'kit'];
+    if (hash && validFilters.indexOf(hash) !== -1) applyFilter(hash);
   }
 
   /* Order form: prefill product name + web3forms submit handling */
