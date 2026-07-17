@@ -89,6 +89,19 @@ button{ font-family:inherit; }
 .h-md{ font-size:clamp(1.5rem,2.2vw,2rem); }
 .lede{ font-size:1.15rem; color:var(--ink-soft); max-width:640px; }
 
+/* Prevent horizontal scroll on all devices */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Ensure all content stays within viewport */
+* {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
 /* ---------- Buttons ---------- */
 .btn{
   display:inline-flex; align-items:center; gap:.55em;
@@ -142,49 +155,188 @@ button{ font-family:inherit; }
 }
 
 /* ---------- Header ---------- */
-.site-header{
-  position:sticky; top:0; z-index:100;
-  background:rgba(255,255,255,.92);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid var(--line);
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, .92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
 }
-.nav-row{
-  display:flex; align-items:center; justify-content:space-between;
-  padding:14px 0;
-}
-.brand{ display:flex; align-items:center; gap:.7em; }
-.brand img{ height:44px; width:auto; }
-.brand-word{ font-family:var(--font-display); font-weight:600; font-size:1.3rem; color:var(--forest-950); }
-.brand-tag{ display:block; font-family:var(--font-mono); font-size:.6rem; letter-spacing:.12em; color:var(--dominant); text-transform:uppercase; }
 
-.navmenu ul{ display:flex; align-items:center; gap:2.1em; }
-.navmenu a{
-  font-weight:600; font-size:.94rem; color:var(--ink);
-  position:relative; padding:.3em 0;
+.nav-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+  position: relative;
+  z-index: 210;
 }
-.navmenu a::after{
-  content:""; position:absolute; left:0; bottom:0; height:2px; width:0;
-  background:var(--dominant); transition:width .25s ease;
-}
-.navmenu a:hover::after, .navmenu a.active::after{ width:100%; }
-.navmenu a.active{ color:var(--dominant); }
-.nav-cta{ display:flex; align-items:center; gap:1em; }
-.mobile-toggle{ display:none; background:none; border:none; font-size:1.5rem; cursor:pointer; color:var(--forest-950); }
 
-@media (max-width:960px){
-  .navmenu{
-    position:fixed; inset:0 0 0 auto; width:min(320px,86vw); height:100vh;
-    background:var(--forest-950); color:#fff;
-    transform:translateX(100%); transition:transform .35s ease;
-    padding:100px 32px 32px; z-index:200;
+.brand {
+  display: flex;
+  align-items: center;
+  gap: .7em;
+}
+
+.brand img {
+  height: 44px;
+  width: auto;
+}
+
+.brand-word {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: var(--forest-950);
+}
+
+.brand-tag {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: .6rem;
+  letter-spacing: .12em;
+  color: var(--dominant);
+  text-transform: uppercase;
+}
+
+.navmenu ul {
+  display: flex;
+  align-items: center;
+  gap: 2.1em;
+}
+
+.navmenu a {
+  font-weight: 600;
+  font-size: .94rem;
+  color: var(--ink);
+  position: relative;
+  padding: .3em 0;
+}
+
+.navmenu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background: var(--dominant);
+  transition: width .25s ease;
+}
+
+.navmenu a:hover::after,
+.navmenu a.active::after {
+  width: 100%;
+}
+
+.navmenu a.active {
+  color: var(--dominant);
+}
+
+.nav-cta {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--forest-950);
+  padding: 8px;
+  z-index: 210;
+  position: relative;
+}
+
+/* Mobile Navigation - FIXED */
+@media (max-width: 960px) {
+  .nav-cta .btn-primary {
+    display: none;
   }
-  .navmenu.open{ transform:translateX(0); }
-  .navmenu ul{ flex-direction:column; align-items:flex-start; gap:1.4em; }
-  .navmenu a{ color:#fff; font-size:1.1rem; }
-  .nav-cta .btn-primary{ display:none; }
-  .mobile-toggle{ display:block; z-index:210; }
-  .nav-scrim{ display:none; position:fixed; inset:0; background:rgba(10,32,22,.5); z-index:150; }
-  .nav-scrim.open{ display:block; }
+
+  .mobile-toggle {
+    display: block;
+  }
+
+  .navmenu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(320px, 86vw);
+    height: 100vh;
+    background: var(--forest-950);
+    color: #fff;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 100px 32px 32px;
+    z-index: 200;
+    overflow-y: auto;
+    overflow-x: hidden;
+    visibility: hidden;
+    opacity: 0;
+    /* Prevent it from causing horizontal scroll */
+    pointer-events: none;
+  }
+
+  .navmenu.open {
+    transform: translateX(0);
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .navmenu ul {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.4em;
+    width: 100%;
+  }
+
+  .navmenu ul li {
+    width: 100%;
+  }
+
+  .navmenu a {
+    color: #fff;
+    font-size: 1.1rem;
+    display: block;
+    padding: 8px 0;
+    word-break: break-word;
+  }
+
+  .navmenu a::after {
+    background: var(--lime);
+  }
+
+  .nav-scrim {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 32, 22, .6);
+    z-index: 150;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+  }
+
+  .nav-scrim.open {
+    display: block;
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+/* For very small screens, ensure no overflow */
+@media (max-width: 480px) {
+  .navmenu {
+    width: 85vw;
+    padding: 80px 24px 24px;
+  }
 }
 
 /* ---------- Preloader (flash page) ---------- */
@@ -546,4 +698,28 @@ button{ font-family:inherit; }
 
 @media (prefers-reduced-motion: reduce){
   *{ animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; scroll-behavior:auto !important; }
+}
+
+/* Fix for any overflowing elements */
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Fix for container on mobile */
+@media (max-width: 768px) {
+  .container {
+    padding-inline: 16px;
+    overflow-x: hidden;
+  }
+
+  /* Fix for any large elements */
+  .hero-stats,
+  .grid3,
+  .cat-grid,
+  .product-grid,
+  .related-row,
+  .footer-top {
+    overflow-x: hidden;
+  }
 }
