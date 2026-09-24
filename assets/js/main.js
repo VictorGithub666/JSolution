@@ -59,6 +59,24 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  /* Nav dropdown */
+  document.querySelectorAll('.nav-dropdown').forEach(function (dd) {
+    var toggle = dd.querySelector('.nav-dropdown-toggle');
+    if (!toggle) return;
+    toggle.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var isOpen = dd.classList.contains('open');
+      // close all dropdowns first
+      document.querySelectorAll('.nav-dropdown.open').forEach(function (d) { d.classList.remove('open'); });
+      if (!isOpen) dd.classList.add('open');
+    });
+  });
+
+  // Close dropdowns when clicking outside
+  document.addEventListener('click', function () {
+    document.querySelectorAll('.nav-dropdown.open').forEach(function (d) { d.classList.remove('open'); });
+  });
+
   /* Scroll-to-top */
   var stop = document.getElementById('scroll-top');
   window.addEventListener('scroll', function () {
